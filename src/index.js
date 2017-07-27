@@ -43,7 +43,24 @@ start.onclick = function (event) {
 			}
 			gamerScoresField.innerText = "Your score is " + scores
 			Deck = document.getElementsByClassName("card-container")[0]
+			if ( scores > 21 ) {
+				alert ("Too much")
+				start.classList.add("button-hide")
+			}
 }
+
+// reset.onclick = function() {
+// 	scores = 0;
+// 	gamerScoresField.innerText = "Your score is " + scores
+// 	AIScores = 0;
+// 	AIScoresField.innerText = "Comp score is " + AIScores
+// 	for( item of GC.children ){
+// 		if (item == 0) continue
+// 		GC.removeChild(item)
+// 		Deck.appendChild(item)
+// 	}
+				
+// }
 
 
 

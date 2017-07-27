@@ -75,3 +75,6 @@
 .button-container {
 	margin-bottom: 15px;
 }
+.button-hide {
+	display: none;
+}
