@@ -1,0 +1,77 @@
+.hearts {
+	background-image: url(../img/hearts.jpg);	
+	color: red;
+}
+.spades {
+	background-image: url(../img/spades.jpg);	
+	color: black;
+}
+.diamonds {
+	background-image: url(../img/diamonds.jpg);	
+	color: red;
+}
+.clubs {
+	background-image: url(../img/clubs.jpg);	
+	color: black;
+}
+.card {
+	display: inline-block;
+	height: 100px;
+	width: 70px;
+	padding: 5px;
+	font-size: 15px;
+	border: 2px solid black;
+	border-radius: 5px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: 0% 50%;
+	margin-right: -60px;
+	background-color: white;
+}
+.scoreCardG {
+	margin-right: 10px;
+	text-align: center;
+	border: 2px solid green;
+	padding: 0;
+	
+}
+.scoreCardA {
+	margin-right: 10px;
+	text-align: center;
+	border: 2px solid red;
+	padding: 0;
+
+}
+
+.field {
+	border: 1px solid black;
+	border-radius: 5px;
+	height: 120px;
+	min-width: 100px;
+	padding: 10px;
+	margin-bottom: 5px;
+}
+.top {
+	display: inline-block;
+	height: 50px;
+	min-width: 80px;
+	border: 2px solid yellow;
+	color: white;
+	font-weight: bold;
+	font-size: 15px;
+	margin-left: 10px;
+}
+
+.hide {
+	background-image: none;
+	background-color: lightgreen;
+	margin-right: -85px;
+	font-size: 0px;
+}
+.button {
+	background-color: lightgreen;
+
+}
+.button-container {
+	margin-bottom: 15px;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>21</title>
+	<link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+	<div class="button-container">
+		
+		<button class="top button" id="start">GET CARD</button>
+		<button class="top button" id="pass">PASS</button>
+		
+
+	</div>
+
+	<div class="field gamer-cards">
+		<div class="card scores scoreCardG">Your score is 0</div>
+	</div>
+	<div class="field AI-cards">
+		<div class="card scores scoreCardA">Comp score is 0</div>
+	</div>
+
+	<div class="card-container">
+
+			<div class="card six hearts">6</div>
+			<div class="card six clubs">6</div>
+			<div class="card six diamonds">6</div>
+			<div class="card six spades">6</div>
+			<div class="card seven hearts">7</div>
+			<div class="card seven clubs">7</div>
+			<div class="card seven diamonds">7</div>
+			<div class="card seven spades">7</div>
+			<div class="card eigth hearts">8</div>
+			<div class="card eigth clubs">8</div>
+			<div class="card eigth diamonds">8</div>
+			<div class="card eigth spades">8</div>
+			<div class="card nine hearts">9</div>
+			<div class="card nine clubs">9</div>
+			<div class="card nine diamonds">9</div>
+			<div class="card nine spades">9</div>
+			<div class="card ten hearts">10</div>
+			<div class="card ten clubs">10</div>
+			<div class="card ten diamonds">10</div>
+			<div class="card ten spades">10</div>
+			<div class="card j hearts">J</div>
+			<div class="card j clubs">J</div>
+			<div class="card j diamonds">J</div>
+			<div class="card j spades">J</div>
+			<div class="card q hearts">Q</div>
+			<div class="card q clubs">Q</div>
+			<div class="card q diamonds">Q</div>
+			<div class="card q spades">Q</div>
+			<div class="card k hearts">K</div>
+			<div class="card k clubs">K</div>
+			<div class="card k diamonds">K</div>
+			<div class="card k spades">K</div>
+			<div class="card a hearts">A</div>
+			<div class="card a clubs">A</div>
+			<div class="card a diamonds">A</div>
+			<div class="card a spades">A</div>
+		
+	</div>
+	<span>Разработать игру в которой есть игрок и И.И. У игрока есть три кнопки: "Получить карту", "Пас". Когда игрок взаимодействует с кнопкой "Получить карту", то к его счету начисляеться определенное количество очков от 1 - 11 и И.И. также получает очки. Когда игрок взаимодействует с кнопкой "Пас" это означает, что ему хватит очков и он готов вскрыть карты, если И.И. не достаточно карт он может взять еще карту для получения очков.
+Достаточное количество очков для И.И. 18 - 20. Если пользователь выиграл, то появляеться на экране сообщение о выиграше. Побеждает тот у кого большее количество очков. Максимальное количество очков равно 21.
+И.И. всегда получает дополнительное очко в конце игры. Очки начисляються псевдослучайно от 1 - 11.
+Пользователь также должен иметь возможность смотреть сколько в данный момент у него очков.
+Когда игра окончена, то счетчики у И.И. и игрока обнуляются.</span>
+	<script src="./src/const.js" defer></script>
+	<script src="./src/index.js" defer></script>
+</body>
+</html>
