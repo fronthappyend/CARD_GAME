@@ -9,14 +9,17 @@ let AIScores = 0
 for (item of Deck.children){
 	item.classList.add("hide")
 }
+if ( AIScores > 21 ) {
+	pass.removeEventListener( "click", passListener )
+}
 
-start.onclick = function (event) {
+let startListener = function (event) {
 	   		let N = Math.floor(Math.random()*Deck.children.length)
 			let Child = Deck.children[N]
 			Child.classList.remove("hide")
+			Child.classList.remove("hide1")
 			Deck.removeChild(Child)
 			GC.appendChild(Child)
-
 			switch(Child.textContent) {
 				case "6": scores += 6 
 				break;
@@ -46,31 +49,42 @@ start.onclick = function (event) {
 			if ( scores > 21 ) {
 				alert ("Too much")
 				start.classList.add("button-hide")
+				pass.classList.add("button-hide")
 			}
+			pass.addEventListener( "click", passListener )
+			pass.addEventListener( "click", timeout )
+			reset.addEventListener( "click", resetListener )
 }
 
-// reset.onclick = function() {
-// 	scores = 0;
-// 	gamerScoresField.innerText = "Your score is " + scores
-// 	AIScores = 0;
-// 	AIScoresField.innerText = "Comp score is " + AIScores
-// 	for( item of GC.children ){
-// 		if (item == 0) continue
-// 		GC.removeChild(item)
-// 		Deck.appendChild(item)
-// 	}
-				
-// }
+let resetListener = function(event) {	
+	start.classList.remove("button-hide")
+	pass.classList.remove("button-hide")
+	scores = 0;
+	gamerScoresField.innerText = "Your score is " + scores
+	AIScores = 0;
+	AIScoresField.innerText = "Comp score is " + AIScores
 
+	for ( let i = GC.children.length-1; i > 0; --i) {
+		let Child = GC.children[i]
+		Child.classList.add("hide1")
+		GC.removeChild(Child)
+		Deck.appendChild(Child)
+	}
+	for ( let i = AC.children.length-1; i > 0; --i) {
+		let Child = AC.children[i]
+		Child.classList.add("hide1")
+		AC.removeChild(Child)
+		Deck.appendChild(Child)
+	}
+}
 
-
-
- pass.onclick = function (event) {
-	let AIPlay = setInterval(function (){
+let passListener = function (event) {
+	let interval = setInterval(function (){
 	if(AIScores < 18) {
 			let N = Math.floor(Math.random()*Deck.children.length)
 			let Child = Deck.children[N]
 			Child.classList.remove("hide")
+			Child.classList.remove("hide1")
 			Deck.removeChild(Child)
 			AC.appendChild(Child)
 
@@ -99,27 +113,28 @@ start.onclick = function (event) {
 				break;
 			}
 			AIScoresField.innerText = "Comp score is " + AIScores
-			Deck = document.getElementsByClassName("card-container")[0]
-		} else if (AIScores > 18 && AIScores < 21) {
-			++AIScores
-		} else {
-			alert ("Comp has too much")
-			clearInterval(AIPlay)
-			scores = 0
-			AIScores = 0
-
-		}
-	}	,1000)
+			
+	}	else {
+		clearInterval(interval)
+	}
+	}	,500)
 }
 
+let timeout = function (event) {
+	setTimeout( function(){
+		if (AIScores < 21) {
+			++AIScores;
+			AIScoresField.innerText = "Comp score is " + AIScores
+		}
+		if(( scores < 22 && AIScores < 22 && scores > AIScores)||(scores < 22 && AIScores > 21)) {
+			alert ("You win")
+		} else if ( scores === AIScores ){
+			alert ("Equal")
+		} else { 
+			alert ("You lose")
+		}
+		
+	}, 3000)
+}
 
-
-
-
-
-
-
-
-
-
-
+start.addEventListener( "click", startListener )

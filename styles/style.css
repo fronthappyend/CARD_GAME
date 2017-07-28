@@ -68,6 +68,12 @@
 	margin-right: -85px;
 	font-size: 0px;
 }
+.hide1 {
+	background-image: none;
+	background-color: lightgreen;
+	margin-right: -81px;
+	font-size: 0px;
+}
 .button {
 	background-color: lightgreen;
 
@@ -77,4 +83,11 @@
 }
 .button-hide {
 	display: none;
+}
+
+.condition {
+	border: 2px solid green;
+	border-radius: 5px;
+	margin-top: 15px;
+	padding: 5px;
 }
