@@ -21,16 +21,6 @@ let startListener = function (event) {
 			Deck.removeChild(Child)
 			GC.appendChild(Child)
 			switch(Child.textContent) {
-				case "6": scores += 6 
-				break;
-				case "7": scores += 7 
-				break;
-				case "8": scores += 8 
-				break;
-				case "9": scores += 9 
-				break;
-				case "10": scores += 10 
-				break;
 				case "J": scores += 2 
 				break;
 				case "Q": scores += 3 
@@ -43,8 +33,10 @@ let startListener = function (event) {
 					scores += 11
 				}
 				break;
+				default: scores += parseInt(Child.textContent); break
 			}
 			gamerScoresField.innerText = "Your score is " + scores
+			
 			Deck = document.getElementsByClassName("card-container")[0]
 			if ( scores > 21 ) {
 				alert ("Too much")
@@ -63,19 +55,8 @@ let resetListener = function(event) {
 	gamerScoresField.innerText = "Your score is " + scores
 	AIScores = 0;
 	AIScoresField.innerText = "Comp score is " + AIScores
-
-	for ( let i = GC.children.length-1; i > 0; --i) {
-		let Child = GC.children[i]
-		Child.classList.add("hide1")
-		GC.removeChild(Child)
-		Deck.appendChild(Child)
-	}
-	for ( let i = AC.children.length-1; i > 0; --i) {
-		let Child = AC.children[i]
-		Child.classList.add("hide1")
-		AC.removeChild(Child)
-		Deck.appendChild(Child)
-	}
+	backToDeck(GC)
+	backToDeck(AC)
 }
 
 let passListener = function (event) {
@@ -89,16 +70,6 @@ let passListener = function (event) {
 			AC.appendChild(Child)
 
 			switch(Child.textContent) {
-				case "6": AIScores += 6 
-				break;
-				case "7": AIScores += 7 
-				break;
-				case "8": AIScores += 8 
-				break;
-				case "9": AIScores += 9 
-				break;
-				case "10": AIScores += 10 
-				break;
 				case "J": AIScores += 2 
 				break;
 				case "Q": AIScores += 3 
@@ -111,6 +82,7 @@ let passListener = function (event) {
 					AIScores += 11
 				}
 				break;
+				default: AIScores += parseInt(Child.textContent); break
 			}
 			AIScoresField.innerText = "Comp score is " + AIScores
 			
@@ -137,4 +109,18 @@ let timeout = function (event) {
 	}, 3000)
 }
 
+let backToDeck = function (parent) {
+	for ( let i = parent.children.length-1; i > 0; --i) {
+		let Child = parent.children[i]
+		Child.classList.add("hide1")
+		parent.removeChild(Child)
+		Deck.appendChild(Child)
+	}
+}
+
 start.addEventListener( "click", startListener )
+
+
+
+
+
